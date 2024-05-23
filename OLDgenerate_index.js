@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const directoryPath = path.join(__dirname, 'watchlist');
+const directoryPath = path.join(__dirname);
 
 fs.readdir(directoryPath, (err, files) => {
   if (err) {
@@ -9,14 +9,8 @@ fs.readdir(directoryPath, (err, files) => {
   }
 
   let fileList = files
-    .filter(file => path.extname(file) === '.url')
-    .map(file => {
-      const filePath = path.join(directoryPath, file);
-      const content = fs.readFileSync(filePath, 'utf-8');
-      const urlMatch = content.match(/URL=(.*)/);
-      const url = urlMatch ? urlMatch[1] : '#';
-      return `<li><a href="${url}">${file}</a></li>`;
-    })
+    .filter(file => file !== 'index.html' && file !== 'generate_index.js')
+    .map(file => `<li><a href="${file}">${file}</a></li>`)
     .join('\n');
 
   let htmlContent = `
@@ -36,6 +30,6 @@ fs.readdir(directoryPath, (err, files) => {
   </html>
   `;
 
-  fs.writeFileSync(path.join(__dirname, 'index.html'), htmlContent, 'utf8');
+  fs.writeFileSync(path.join(directoryPath, 'index.html'), htmlContent, 'utf8');
   console.log('index.html has been generated');
 });
