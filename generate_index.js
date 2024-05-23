@@ -28,7 +28,7 @@ fs.readdir(directoryPath, (err, files) => {
     <title>Directory Listing</title>
   </head>
   <body>
-    <h1>Contents of the Directory</h1>
+    <h1>Watchlist</h1>
     <ul>
       ${fileList}
     </ul>
