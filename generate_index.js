@@ -36,6 +36,6 @@ fs.readdir(directoryPath, (err, files) => {
   </html>
   `;
 
-  fs.writeFileSync(path.join(__dirname, 'index.html'), htmlContent, 'utf8');
-  console.log('index.html has been generated');
+  fs.writeFileSync(path.join(__dirname, 'watchlist.html'), htmlContent, 'utf8');
+  console.log('watchlist.html has been generated');
 });
