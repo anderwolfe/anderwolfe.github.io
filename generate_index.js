@@ -45,9 +45,18 @@ const htmlContent = `
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Directory Listing</title>
 </head>
-<body>
+<style type="text/css">
+<!--
+a:link {color: orange; text-decoration: underline; }
+a:active {color: orange; text-decoration: underline; }
+a:visited {color: crimson; text-decoration: underline; }
+a:hover {color: yellow; text-decoration: none; }
+-->
+</style>
+<body bgcolor="black"><font color="white">
   <h1>Watchlist</h1>
   ${fileList}
+</font>
 </body>
 </html>
 `;
