@@ -1,0 +1,47 @@
+{
+  "settings": {
+    "alwaysShowCaptions": false
+  },
+  "items": [
+    {
+      "type": "image",
+      "title": "Test Photo",
+      "src": "images/sample.jpg",
+      "thumb": "images/sample.jpg",
+      "description": "Sample image caption.",
+      "tags": ["sample", "photo"],
+      "date": "2025-09-29",
+      "size": "s",
+      "showCaptions": false
+    },
+    {
+      "type": "youtube",
+      "title": "Test Video",
+      "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "description": "Sample video caption.",
+      "tags": ["sample", "video"],
+      "date": "2025-09-28",
+      "size": "m",
+      "showCaptions": false
+    },
+    {
+      "type": "youtube",
+      "title": "Casey",
+      "src": "https://www.youtube.com/watch?v=og3aFSeEm94",
+      "description": "just SMACK IT.",
+      "tags": ["sample", "video"],
+      "date": "2025-09-28",
+      "size": "m",
+      "showCaptions": false
+    },    
+    {
+      "type": "image",
+      "title": "Hero Shot",
+      "src": "images/hero.png",
+      "description": "Editorial concept.",
+      "size": "m",
+      "showCaptions": false
+    }
+
+  ]
+}

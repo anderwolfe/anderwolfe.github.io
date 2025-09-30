@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <meta http-equiv="refresh" content="100">
+    <style type="text/css">
+        a:link {color: yellow; text-decoration: underline; }
+        a:active {color: yellow; text-decoration: underline; }
+        a:visited {color: yellow; text-decoration: underline; }
+        a:hover {color: orange; text-decoration: none; }
+        body {
+            background-image: url('bluebg.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        #access-container {
+            visibility: hidden;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .hidden-element {
+            position: absolute;
+            left: -9999px;
+        }
+    </style>
+</head>
+<body>
+    <div id="access-container">
+        <button id="access-button" class="hidden-element">Get Access</button>
+        <a id="hidden-link" class="hidden-element" href="watchlist.html">Watchlist</a>
+    </div>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === 'Enter') {
+                document.getElementById('access-button').click();
+            }
+        });
+
+        document.getElementById('access-button').addEventListener('click', function() {
+            document.getElementById('hidden-link').click();
+        });
+    </script>
+
+    <center>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/43d08n89d37/53703/?unit=us" data-label_1="MADISON" data-label_2="WEATHER" data-theme="original" >MADISON WEATHER</a>
+        <script>
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+        </script>
+
+        <br><br><br>
+
+        <script>
+            (function(d, s, id) {
+                if (d.getElementById(id)) {
+                    if (window.__TOMORROW__) {
+                        window.__TOMORROW__.renderWidget();
+                    }
+                    return;
+                }
+                const fjs = d.getElementsByTagName(s)[0];
+                const js = d.createElement(s);
+                js.id = id;
+                js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
+
+                fjs.parentNode.insertBefore(js, fjs);
+            })(document, 'script', 'tomorrow-sdk');
+        </script>
+
+        <div class="tomorrow"
+            data-location-id="120999"
+            data-language="EN"
+            data-unit-system="IMPERIAL"
+            data-skin="dark"
+            data-widget-type="summary"
+            style="padding-bottom:22px;position:relative;">
+            <a
+                href="https://www.tomorrow.io/weather-api/"
+                rel="nofollow noopener noreferrer"
+                target="_blank"
+                style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;">
+                <img
+                    alt="Powered by the Tomorrow.io Weather API"
+                    src="https://weather-website-client.tomorrow.io/img/powered-by.svg"
+                    width="250"
+                    height="18"
+                />
+            </a>
+        </div>
+
+        <br><br><br>
+
+        <iframe src="https://free.timeanddate.com/clock/i8uzbrtc/n142/fn12/fs18/fcfff/tc22d/ftb/bls0/brs0/bts4/btc00b" frameborder="0" width="300" height="50"></iframe>
+
+        <br><br><br>
+        <br><a href="http://www.netflix.com"><img src="netflix.png"></a><a href="https://www.disneyplus.com/home"><img src="disney.png"></a><a href="https://play.hbomax.com/"><img src="hbo.png"></a>
+        <br><a href="https://www.amazon.com/gp/video/detail/B00YBX664Q/ref=atv_dp_season_select_s1"><img src="robot.png"></a>
+
+        <br><br><br>
+        <a href="https://flipboard.com/"><img src="flipboard.PNG"></a> <a href="https://usepanda.com/app/#/"><img src="panda.PNG"></a>
+    </center>
+</body>
+</html>

@@ -1,0 +1,140 @@
+:root{
+  --ink:#eef3f8; --muted:#9fb0c2;
+  --card:#0f1620; --card2:#0b1119;
+}
+
+/* Page background = your image */
+html,body{height:100%}
+*{box-sizing:border-box}
+body{
+  margin:0; color:var(--ink);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: url("background.png") center/cover fixed no-repeat;
+}
+
+/* Header banner (left aligned, responsive) */
+header{
+  padding:20px 18px 10px;
+  backdrop-filter:saturate(120%) blur(4px);
+  background: linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.08), rgba(0,0,0,0));
+}
+.wrap{max-width:1300px; margin:0 auto}
+.banner{
+  display:block;
+  width: clamp(360px, 28vw, 840px);   /* scales with viewport */
+  height:auto;
+  border:0; outline:0;
+  user-select:none; -webkit-user-drag:none;
+}
+
+/* Tiny search below banner */
+.searchbox{ margin-top:12px; display:flex; justify-content:flex-start; }
+.searchbox input[type="search"]{
+  width:min(560px, 92vw);
+  background:rgba(0,0,0,.32);
+  color:var(--ink);
+  border:none; border-radius:14px;
+  padding:12px 14px; font-size:15px; outline:none;
+}
+.searchbox input[type="search"]::placeholder{ color:rgba(255,255,255,.75) }
+
+/* Gallery grid (variable tile widths based on size) */
+main{max-width:1300px; margin:12px auto 70px; padding:0 18px; position:relative; z-index:1}
+
+.grid{
+  display:grid;
+  grid-auto-flow:dense;
+  gap:16px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* Size mapping:
+   s  -> span 4  (~33%)
+   m  -> span 6  (~50%)
+   l  -> span 8  (~66%)
+   xl -> span 12 (100%)
+*/
+.card{ grid-column: span 6; }               /* default m */
+.card.size-s{  grid-column: span 4; }
+.card.size-m{  grid-column: span 6; }
+.card.size-l{  grid-column: span 8; }
+.card.size-xl{ grid-column: span 12; }
+
+@media (max-width:1100px){
+  .card{ grid-column: span 6; }
+  .card.size-l{ grid-column: span 12; }
+}
+@media (max-width:640px){
+  .card, .card.size-s, .card.size-m, .card.size-l, .card.size-xl{ grid-column: span 12; }
+}
+
+/* Card visuals (no borders) */
+.card{
+  border:none; border-radius:18px; overflow:hidden;
+}
+
+
+/* Media */
+.thumb{ position:relative; width:100%; overflow:hidden; }
+.thumb img{ width:100%; height:auto; display:block; }
+.thumb .ytpad{ width:100%; aspect-ratio:16/9; display:block; object-fit:cover; }
+
+/* Play button (red, more pronounced) */
+.ytplay{ position:absolute; inset:0; display:grid; place-items:center; }
+.ytplay .play{
+  width:66px; height:66px; border-radius:50%;
+  background:rgba(220,30,38,.90); /* red */
+  display:grid; place-items:center;
+  box-shadow:0 10px 24px rgba(220,30,38,.45);
+  transform: scale(1); transition: transform .12s ease, box-shadow .12s ease;
+}
+.ytplay .play::before{
+  content:""; width:0; height:0;
+  border-left:18px solid #fff; border-top:12px solid transparent; border-bottom:12px solid transparent;
+  margin-left:4px;
+}
+.card:hover .ytplay .play{ transform: scale(1.06); box-shadow:0 14px 36px rgba(220,30,38,.55); }
+
+/* Hover captions: slide/fade from bottom.
+   If .always-show is set on the card, the captions are visible without hover. */
+.meta{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:12px 14px 14px;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.55) 40%, rgba(0,0,0,.75));
+  transform: translateY(16px);
+  opacity:0;
+  transition: transform .18s ease, opacity .18s ease;
+}
+.card:hover .meta,
+.card:focus-within .meta,
+.card.always-show .meta{
+  transform: translateY(0);
+  opacity:1;
+}
+.meta .title{ font-size:16px; font-weight:600; color:var(--ink) }
+.meta .desc{  font-size:13px; color:var(--muted); margin-top:4px }
+
+/* Lightbox (no borders) */
+dialog{
+  border:none; padding:0; border-radius:18px; overflow:hidden;
+  background:rgba(10,14,20,.92); color:var(--ink); width:min(1100px, 96vw);
+  box-shadow:0 20px 80px rgba(0,0,0,.6);
+}
+dialog::backdrop{ background:rgba(0,0,0,.65) }
+.modal-head{ display:flex; align-items:center; justify-content:space-between; padding:12px 14px; }
+.modal-title{ font-weight:600 }
+.modal-media{ width:100%; background:#000 }
+.modal-media img{ width:100%; height:auto; display:block }
+.modal-media iframe{ width:100%; aspect-ratio:16/9; display:block }
+
+.btn{
+  background:rgba(255,255,255,.10); color:var(--ink);
+  border:none; border-radius:999px; padding:8px 12px; font-size:13px; cursor:pointer;
+}
+.btn:hover{ filter:brightness(1.1) }
+
+.footer{ margin:24px auto 0; font-size:12px; color:var(--muted); text-align:center }
+
+/* Accessibility */
+a, button, [tabindex]{ outline:none }
+:focus-visible{ box-shadow:0 0 0 2px #000, 0 0 0 4px rgba(255,255,255,.6) }
